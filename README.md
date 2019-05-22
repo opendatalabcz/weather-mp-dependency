@@ -2,7 +2,7 @@
 
 Projekt zkoumá vztah mezi přítomností poslanců na hlasováních poslanecké sněmovny a počasím v Praze.
 
-## Získání data
+## Získání dat
 
 Pro získání dat o hlasováních byl vytvořen skript `psp_scrapper.py`. Ten projde stránky [poslanecké sněmovny](http://www.psp.cz/), najde všechna zasedání v aktuálním volebním období a uloží informace o jednotlivých hlasováních.
 
