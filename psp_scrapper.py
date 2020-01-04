@@ -48,7 +48,7 @@ def process_session( output_file_name, first_url ):
 
         while next_voting:
             next_voting = False
-            print( '.', end='' )
+            print( '.', end='', flush=True )
 
             # Load page content.
             response = requests.get( BASE_URL + current_url );
@@ -78,11 +78,11 @@ def process_session( output_file_name, first_url ):
     output_file.close();
 
 for session_id in get_session_ids():
-    print( "Started " + str( session_id ) + ". session processing", end='' );
+    print( "Started " + str( session_id ) + ". session processing", end='', flush=True );
     response = requests.get( BASE_URL + 'phlasa.sqw?o=8&s=' + str( session_id ) + '&pg=1' );
     content = BeautifulSoup( response.content, "html.parser", from_encoding="windows-1250" ).find( id='main-content' );
     
     first_voting_link = content.find( 'table' ).find_all( 'tr' )[ 1 ].find_all( 'td' )[ 1 ].a.get( 'href' );
     
     process_session( 'psp_data.csv', first_voting_link );
-    print( '\nDone!' )
+    print( '\nDone!', flush=True )
